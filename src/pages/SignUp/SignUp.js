@@ -53,6 +53,8 @@ const SignUp = () => {
   const classes = useStyles()
   const intl = useIntl()
   const history = useHistory()
+  const [lastName, setLastname] = useState('')
+  const [firstname, setFirstName] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [userEmail, setUserEmail] = useState('')
@@ -99,6 +101,38 @@ const SignUp = () => {
             {intl.formatMessage({ id: 'sign_up', defaultMessage: 'Sign up' })}
           </Typography>
           <form className={classes.form} onSubmit={handleSubmit} noValidate>
+          <TextField
+              value={firstname}
+              onInput={(e) => setFirstName(e.target.value)}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="firstname"
+              label={intl.formatMessage({
+                id: 'firstname',
+                defaultMessage: 'Firstname',
+              })}
+              name="firstname"
+              autoComplete="firstname"
+              autoFocus
+            />
+            <TextField
+              value={lastName}
+              onInput={(e) => setLastname(e.target.value)}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="lastName"
+              label={intl.formatMessage({
+                id: 'lastName',
+                defaultMessage: 'LastName',
+              })}
+              name="lastName"
+              autoComplete="lastName"
+              
+            />            
             <TextField
               value={username}
               onInput={(e) => setUsername(e.target.value)}
@@ -113,7 +147,6 @@ const SignUp = () => {
               })}
               name="username"
               autoComplete="username"
-              autoFocus
             />
             <TextField
               value={userEmail}

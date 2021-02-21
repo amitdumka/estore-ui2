@@ -1,9 +1,9 @@
 import { defineMessages } from 'react-intl'
 
 const messages = defineMessages({
-  app_name: 'React Most Wanted',
-  sign_in: 'Sign in',
-  sign_out: 'Sign out',
+  app_name: 'eStore ',
+  sign_in: 'Log in',
+  sign_out: 'Log out',
   sign_up: 'Sign up',
   email: 'Email',
   username: 'Username',

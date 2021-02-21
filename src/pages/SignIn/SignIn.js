@@ -10,6 +10,8 @@ import { useAuth } from 'base-shell/lib/providers/Auth'
 import { useHistory } from 'react-router-dom'
 import { useIntl } from 'react-intl'
 import { useMenu } from 'material-ui-shell/lib/providers/Menu'
+import ToggleButton from '@material-ui/core/switch';
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -56,6 +58,7 @@ const SignIn = () => {
   const history = useHistory()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [rememberme, setRemembeme] = useState(true)
   const { toggleThis } = useMenu()
   const { setAuth } = useAuth()
 
@@ -116,6 +119,15 @@ const SignIn = () => {
               id="password"
               autoComplete="current-password"
             />
+            <ToggleButton
+              value={rememberme}
+              onClick={(e) => setRemembeme(e.target.value)}
+              margin="normal"
+              id="rememberme"
+              type="checkbox"
+              name="rememberMe">
+              Remember me?
+            </ToggleButton>
             <Button
               type="submit"
               fullWidth

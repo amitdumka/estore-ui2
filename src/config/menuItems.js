@@ -19,6 +19,14 @@ import {
   Tab,
   ViewList,
   Web,
+  Assignment,
+  Business,
+  People,
+  Security,
+  Slideshow,
+  CallToAction,
+  Whatshot,
+  Chat,Home as HomeIcon,
 } from '@material-ui/icons'
 
 import allLocales from './locales'
@@ -93,14 +101,93 @@ const getMenuItems = (props) => {
     ]
   }
   return [
+    
+    {
+      value: '/',
+      visible: isAuthorised,
+      primaryText: intl.formatMessage({
+        id: 'landing_page',
+        defaultMessage: 'Landing Page',
+      }),
+      leftIcon: <Web />,
+    },
     {
       value: '/home',
       visible: isAuthorised,
       primaryText: intl.formatMessage({ id: 'home' }),
+      leftIcon: <HomeIcon />,
+    },
+    {
+      value: '/dashboard',
+      visible: isAuthorised,
+      primaryText: intl.formatMessage({
+        id: 'dashboard',
+        defaultMessage: 'Dashboard',
+      }),
       leftIcon: <DashboardIcon />,
     },
     {
-      primaryText: intl.formatMessage({ id: 'demos', defaultMessage: 'Demos' }),
+      value: '/chats',
+      visible: isAuthorised,
+      primaryText: intl.formatMessage({ id: 'chats', defaultMessage: 'Chats' }),
+      leftIcon: <Chat />,
+    },
+    {
+      value: '/chats',
+      visible: isAuthorised,
+      primaryText: intl.formatMessage({ id: 'tailoring', defaultMessage: 'Tailoring' }),
+      leftIcon: <Chat />,
+    },
+    {
+      primaryText: intl.formatMessage({
+        id: 'accounting',
+        defaultMessage: 'Accounting',
+      }),
+      visible: isAuthorised,
+      primaryTogglesNestedList: true,
+      leftIcon: <Slideshow />,
+      nestedItems: [
+        // {
+        //   value: '/admin',
+        //   visible: !isAdmin,
+        //   primaryText: intl.formatMessage({
+        //     id: 'admin',
+        //     defaultMessage: 'Admin',
+        //   }),
+        //   leftIcon: <Security />,
+        // },
+        {
+          value: '/companies',
+          //visible: isGranted(auth, 'read_companies'),
+          primaryText: intl.formatMessage({
+            id: 'companies',
+            defaultMessage: 'Companies',
+          }),
+          leftIcon: <Business />,
+        },
+        {
+          value: '/tasks',
+          visible: isAuthorised,
+          primaryText: intl.formatMessage({
+            id: 'tasks',
+            defaultMessage: 'Tasks',
+          }),
+          leftIcon: <Assignment />,
+        },
+        {
+          value: '/posts',
+          visible: isAuthorised,
+          primaryText: intl.formatMessage({
+            id: 'posts',
+            defaultMessage: 'Posts',
+          }),
+          leftIcon: <CallToAction />,
+        },
+      ],
+    },
+
+    {
+      primaryText: intl.formatMessage({ id: 'payroll', defaultMessage: 'Payroll' }),
       primaryTogglesNestedList: true,
       leftIcon: <Web />,
       nestedItems: [
@@ -151,6 +238,124 @@ const getMenuItems = (props) => {
         },
       ],
     },
+
+    {
+      primaryText: intl.formatMessage({
+        id: 'banking',
+        defaultMessage: 'Banking',
+      }),
+      visible: isAuthorised,
+      primaryTogglesNestedList: true,
+      leftIcon: <Assignment />,
+      nestedItems: [
+        {
+          value: '/docu/getting_started',
+          visible: isAuthorised,
+          primaryText: intl.formatMessage({
+            id: 'getting_started',
+            defaultMessage: 'Getting started',
+          }),
+          leftIcon: <Assignment />,
+        },
+      ],
+    },
+
+    {
+      primaryText: intl.formatMessage({
+        id: 'expense',
+        defaultMessage: 'Cash In/Out',
+      }),
+      visible: isAuthorised,
+      primaryTogglesNestedList: true,
+      leftIcon: <Whatshot />,
+      nestedItems: [
+        {
+          value: '/firebase_paths',
+          visible: isAuthorised,
+          primaryText: intl.formatMessage({
+            id: 'firebase_paths',
+            defaultMessage: 'Paths',
+          }),
+          leftIcon: <Whatshot />,
+        },
+        {
+          value: '/firebase_lists',
+          visible: isAuthorised,
+          primaryText: intl.formatMessage({
+            id: 'firebase_lists',
+            defaultMessage: 'Lists',
+          }),
+          leftIcon: <Whatshot />,
+        },
+        {
+          value: '/firebase_docs',
+          visible: isAuthorised,
+          primaryText: intl.formatMessage({
+            id: 'firebase_docs',
+            defaultMessage: 'Docs',
+          }),
+          leftIcon: <Whatshot />,
+        },
+        {
+          value: '/firebase_cols',
+          visible: isAuthorised,
+          primaryText: intl.formatMessage({
+            id: 'firebase_cols',
+            defaultMessage: 'Cols',
+          }),
+          leftIcon: <Whatshot />,
+        },
+        {
+          value: '/firebase_messaging',
+          visible: isAuthorised,
+          primaryText: intl.formatMessage({
+            id: 'firebase_messaging',
+            defaultMessage: 'Messaging',
+          }),
+          leftIcon: <Whatshot />,
+        },
+        {
+          value: '/firebase_storage',
+          visible: isAuthorised,
+          primaryText: intl.formatMessage({
+            id: 'firebase_storage',
+            defaultMessage: 'Storage',
+          }),
+          leftIcon: <Whatshot />,
+        },
+      ],
+    },
+
+    {
+      primaryText: intl.formatMessage({
+        id: 'administration',
+        defaultMessage: 'Administration',
+      }),
+      primaryTogglesNestedList: true,
+      //visible: isAdmin,
+      leftIcon: <Security />,
+      nestedItems: [
+        {
+          value: '/users',
+          visible: isAuthorised,
+          primaryText: intl.formatMessage({
+            id: 'users',
+            defaultMessage: 'Users',
+          }),
+          leftIcon: <People />,
+        },
+        {
+          value: '/roles',
+          visible: isAuthorised,
+          primaryText: intl.formatMessage({
+            id: 'roles',
+            defaultMessage: 'Roles',
+          }),
+          leftIcon: <AccountBoxIcon />,
+        },
+      ],
+    },
+    { divider: true },
     {
       value: '/about',
       visible: true,

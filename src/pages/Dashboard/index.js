@@ -1,15 +1,15 @@
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CountUp from 'react-countup'
-import Days from '../../containers/Reports/Days'
-import Months from '../../containers/Reports/Months'
+//import Days from '../../containers/Reports/Days'
+//import Months from '../../containers/Reports/Months'
 import Page from 'material-ui-shell/lib/containers/Page/Page'
-import Providers from '../../containers/Reports/Providers'
+//import Providers from '../../containers/Reports/Providers'
 import React, { useEffect } from 'react'
 import Scrollbar from 'material-ui-shell/lib/components/Scrollbar/Scrollbar'
 import Typography from '@material-ui/core/Typography'
 import { useIntl } from 'react-intl'
-import { usePaths } from 'rmw-shell/lib/providers/Firebase/Paths'
+//import { usePaths } from 'rmw-shell/lib/providers/Firebase/Paths'
 
 const ReportContainer = ({ children }) => {
   return (
@@ -30,17 +30,6 @@ const ReportContainer = ({ children }) => {
 
 const Dashboard = () => {
   const intl = useIntl()
-  const { watchPath, getPath, unwatchPath } = usePaths()
-  const users_count = getPath('users_count', 0)
-
-  useEffect(() => {
-    watchPath('users_count')
-    return () => {
-      unwatchPath('users_count')
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   return (
     <Page
       pageTitle={intl.formatMessage({
@@ -89,14 +78,14 @@ const Dashboard = () => {
             >
               <CardContent>
                 <Typography color="primary" variant="h1">
-                  <CountUp start={0} end={users_count} />
+                  <CountUp start={0} end={101} />
                 </Typography>
               </CardContent>
             </div>
           </Card>
 
           <ReportContainer>
-            <Months />
+            Months:1001
           </ReportContainer>
         </div>
         <div
@@ -108,10 +97,10 @@ const Dashboard = () => {
           }}
         >
           <ReportContainer>
-            <Days />
+            Days :100
           </ReportContainer>
           <ReportContainer>
-            <Providers />
+            Month: 101
           </ReportContainer>
         </div>
       </Scrollbar>

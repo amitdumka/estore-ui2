@@ -103,12 +103,6 @@ const getMenuItems = (props) => {
   return [
     
     {
-      value: '/',
-      visible: isAuthorised,
-      primaryText: intl.formatMessage({id: 'landing_page', defaultMessage: 'Landing Page',}),
-      leftIcon: <Web />,
-    },
-    {
       value: '/home',
       visible: isAuthorised,
       primaryText: intl.formatMessage({ id: 'home' }),
@@ -121,6 +115,12 @@ const getMenuItems = (props) => {
         id: 'dashboard',
         defaultMessage: 'Dashboard',
       }),
+      leftIcon: <DashboardIcon />,
+    },
+    {
+      value: '/dashboardM',
+      visible: isAuthorised,
+      primaryText: intl.formatMessage({id: 'dasboard2', defaultMessage: 'Daashboard Alternate',}),
       leftIcon: <DashboardIcon />,
     },
     {
@@ -359,6 +359,12 @@ const getMenuItems = (props) => {
       primaryText: intl.formatMessage({ id: 'about' }),
       leftIcon: <InfoOutlined />,
     },
+    {
+      value: '/stores/customers', 
+      visible: true,
+      primaryText: intl.formatMessage({id: 'customers', defaultMessage: 'Customers'}), 
+      leftIcon: <InfoOutlined />,
+   },
     {
        value: '/stores', 
        visible: true,

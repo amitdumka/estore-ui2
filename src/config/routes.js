@@ -16,6 +16,9 @@ const FilterDemo = lazy(() => import('../pages/FilterDemo'))
 const ListPageDemo = lazy(() => import('../pages/ListPageDemo'))
 const TabsDemo = lazy(() => import('../pages/TabsDemo'))
 const MyAccount = lazy(() => import('../pages/MyAccount/MyAccount'))
+const Dashboard = lazy(() => import('../pages/Dashboard'))
+const Dashboard2 = lazy(() => import('../views/reports/DashboardView'))
+const Customers = lazy(() => import('../views/ops/CustomerListView'))
 
 const routes = [
   <UnauthorizedRoute path="/signin" redirectTo="/" exact component={SignIn} />,
@@ -29,6 +32,8 @@ const routes = [
   <Route path="/about" exact component={About} />,
   <AuthorizedRoute path="/my_account" exact component={MyAccount} />,
   <AuthorizedRoute path="/home" exact component={Home} />,
+  <AuthorizedRoute path="/dashboard" exact component={Dashboard} />,
+  <AuthorizedRoute path="/dashboardM" exact component={Dashboard2} />,
   <AuthorizedRoute path="/dialog_demo" exact component={DialogDemo} />,
   <AuthorizedRoute path="/toast_demo" exact component={ToastDemo} />,
   <AuthorizedRoute path="/filter_demo" exact component={FilterDemo} />,
@@ -93,6 +98,7 @@ const routes = [
   <AuthorizedRoute path="/stores/storeopertations" exact component={TabsDemo}/>,
   <AuthorizedRoute path="/stores/storeadmin" exact component={TabsDemo}/>,
   <AuthorizedRoute path="/stores/cashdetails" exact component={TabsDemo}/>,
+  <AuthorizedRoute path="/stores/customers" exact component={Customers}/>,
 
 
 

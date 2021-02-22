@@ -105,10 +105,7 @@ const getMenuItems = (props) => {
     {
       value: '/',
       visible: isAuthorised,
-      primaryText: intl.formatMessage({
-        id: 'landing_page',
-        defaultMessage: 'Landing Page',
-      }),
+      primaryText: intl.formatMessage({id: 'landing_page', defaultMessage: 'Landing Page',}),
       leftIcon: <Web />,
     },
     {
@@ -361,6 +358,12 @@ const getMenuItems = (props) => {
       visible: true,
       primaryText: intl.formatMessage({ id: 'about' }),
       leftIcon: <InfoOutlined />,
+    },
+    {
+       value: '/stores', 
+       visible: true,
+       primaryText: intl.formatMessage({id: 'stores', defaultMessage: 'Stores'}), 
+       leftIcon: <InfoOutlined />,
     },
     { divider: true },
     {

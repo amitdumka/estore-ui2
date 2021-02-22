@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom'
+
 import { useIntl } from 'react-intl'
 
 const useStyles = makeStyles((theme) => ({
@@ -54,7 +55,7 @@ const PasswordReset = () => {
   const [username, setUsername] = useState('')
   function handleSubmit(event) {
     event.preventDefault()
-    history.replace('/signin')
+      history.replace('/signin')
   }
 
   return (

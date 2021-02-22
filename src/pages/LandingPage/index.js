@@ -1,264 +1,244 @@
-import React, { useState, lazy, Suspense } from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import { Helmet } from 'react-helmet'
-import Paper from '@material-ui/core/Paper'
-import { Scrollbars } from 'react-custom-scrollbars'
-import Toolbar from '@material-ui/core/Toolbar'
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import Button from '@material-ui/core/Button'
-import { useHistory } from 'react-router-dom'
-import { useTheme as useAppTheme } from 'material-ui-shell/lib/providers/Theme'
-const PageContent = lazy(() => import('./PageContent'))
-const Footer = lazy(() => import('./Footer'))
-// const ResponsiveMenu = lazy(() =>
-//   import('rmw-shell/lib/containers/ResponsiveMenu')
-// )
+import React, { useState, lazy, Suspense } from "react";
+import { Link as RouterLink, useHistory } from "react-router-dom";
+//import * as Yup from 'yup';
+import { Formik } from "formik";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Link,
+  TextField,
+  Typography,
+  makeStyles,
+} from "@material-ui/core";
+import { Scrollbars } from "react-custom-scrollbars";
+import { Helmet } from "react-helmet";
+import FacebookIcon from "../..//icons/Facebook";
+import GoogleIcon from "../../icons/Google";
+import Page from "../../components/Page";
+import Paper from "@material-ui/core/Paper";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { useTheme as useAppTheme } from "material-ui-shell/lib/providers/Theme";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: '#242424' },
-    secondary: {
-      main: '#c62828',
+    primary1: { main: "#242424" },
+    secondary1: {
+      main: "#c62828",
     },
   },
-})
+});
 
-const LandingPage = () => {
-  const [scrollbar, setScrollbar] = useState(null)
-  const [transparent, setTransparent] = useState(true)
-  const [scrolled, setScrolled] = useState(false)
-  const [components, setComponents] = useState(null)
-  const [top, setTop] = useState(null)
-  const history = useHistory()
-  const { isRTL } = useAppTheme()
-
-  const scrollTo = (e) => {
-    e &&
-      e.scrollIntoView({
-        behavior: 'smooth',
-        alignToTop: true,
-      })
-  }
-
-  const sections = [
-    {
-      name: 'start',
-      onClick: () => history.push('/dashboard'),
+const useStyles = makeStyles((theme) => ({
+  rootB: {
+    backgroundColor: theme.palette.background.dark,
+    display: "flex",
+    flexWrap: "wrap",
+    justify: "center",
+    padding:24,
+    "& > *": {
+      margin: theme.spacing(1),
+      width: "100%",
+      height: "100%",
+      justify: "center",
+      marginRight: theme.spacing(3),
+      marginLeft: theme.spacing(3),
+      paddingBottom: theme.spacing(6),
+      paddingTop: theme.spacing(6),
     },
-    {
-      name: 'components',
-      onClick: () => {
-        setScrolled(true)
-        setTimeout(() => {
-          scrollTo(components)
-        }, 500)
-      },
-    },
-  ]
+  },
+  root: {
+    backgroundColor: theme.palette.background.dark,
+    height: "100%",
+    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(3),
+  },
+}));
 
+const LoginView = () => {
+  const classes = useStyles();
+  const history = useHistory();
+  const [scrollbar, setScrollbar] = useState(null);
+  const [transparent, setTransparent] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+  const [components, setComponents] = useState(null);
+  const [top, setTop] = useState(null);
+  const { isRTL } = useAppTheme();
+  const handel_LoginFunction = () => {
+    alert("Logged In");
+  };
   return (
     <ThemeProvider theme={theme}>
-      <React.Fragment>
+      <React.Fragment justify="center">
         <CssBaseline />
         <Helmet>
-          <meta charset="utf-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, minimum-scale=1, minimal-ui"
-          />
-          <link rel="shortcut icon" href="/favicon.ico" />
-          <link rel="canonical" href="https://www.react-most-wanted.com" />
-          <meta
-            name="keywords"
-            content={
-              'react,pwa,material-ui,redux,boilerplate,lighthouse,gdg,react.js'
-            }
-          />
-          <meta
-            name="description"
-            content={
-              'React PWA boilerplate that is using create-react-app and firebase '
-            }
-          />
-
-          <title>React Most Wanted</title>
+          <title>Login: eStore - Next Gen</title>
         </Helmet>
-        <Scrollbars
-          ref={(e) => {
-            if (e !== null) {
-              setScrollbar(e)
-            }
-          }}
-          renderView={props => (
-            isRTL ? <div {...props} style={{
-              ...props.style,
-              marginLeft: props.style.marginRight,
-              marginRight: 0, }} /> : <div {...props} style={{
-                ...props.style,}} />
-          )}
-          onScroll={(e) => {
-            setTransparent(scrollbar.viewScrollTop < 100)
-            setScrolled(true)
-          }}
-          autoHide
-          style={{ width: '100%', height: '100vh' }}
-        > 
-          <AppBar
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              backgroundColor: transparent ? 'transparent' : undefined,
-              boxShadow: transparent ? 'none' : undefined,
-              transition: 'background 1s',
-            }}
-            position="static"
-          >
-            <Toolbar disableGutters>
-              <div
-                style={{ cursor: 'pointer' }}
-                onClick={() => {
-                  scrollTo(top)
-                }}
-              >
-                <img
-                  src={'/rmw.svg'}
-                  alt="logo"
-                  style={{
-                    height: 35,
-                    justifySelf: 'center',
-                    color: 'white',
-                    marginLeft: 12,
-                    display: transparent ? 'none' : undefined,
-                  }}
-                />
-              </div>
-              <div style={{ flex: 1 }} />
-
-              {/* <Suspense fallback={<CircularProgress />}>
-                <ResponsiveMenu sections={sections} />
-              </Suspense> */}
-            </Toolbar>
-          </AppBar>
-          <div style={{ width: '100%', height: '100%' }}>
-            <div
-              ref={(r) => r && setTop(r)}
-              style={{
-                height: '100vh',
-                width: '100%',
-                backgroundColor: 'black',
-                backgroundRepeat: 'no-repeat',
-                backgroundAttachment: 'fixed',
-                backgroundSize: 'cover',
-                display: 'flex',
-                justifyContent: 'center',
-                minHeight: 600,
-              }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                }}
-              >
-                <img
-                  src={'/rmw.svg'}
-                  alt="logo"
-                  style={{ height: 150, maxWidth: 280, justifySelf: 'center' }}
-                />
-
-                <div style={{ padding: 8 }}>
-                  <h3
-                    style={{
-                      color: 'red',
-                      textAlign: 'center',
-                      fontWeight: 'bold',
-                      fontSize: 50,
-                    }}
-                  >
-                    REACT MOST WANTED
-                  </h3>
-
-                  <h4
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      fontSize: 25,
-                      marginTop: -40,
-                    }}
-                  >
-                    React Starter-Kit with all Most Wanted features
-                  </h4>
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                width: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: -80,
-              }}
-            >
-              <Paper
-                elevation={3}
-                style={{
-                  width: '100%',
-                  maxWidth: '90%',
-                  borderRadius: 15,
-                  minHeight: 400,
-                }}
-              >
-                <div
-                  style={{
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    marginTop: -50,
-                  }}
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justify="center"
+          style={{ minHeight: "100vh" }}
+        >
+          <Grid item m={3}>
+            <div className={classes.rootb}>
+              <Paper elevation={6}>
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  height="100%"
+                  justifyContent="center"
                 >
-                  <Button
-                    size="large"
-                    style={{
-                      margin: 30,
-                      borderRadius: '40px',
-                      fontSize: 'bold',
-                    }}
-                    aria-label="Start button"
-                    variant="contained"
-                    color="secondary"
-                    name={'signin'}
-                    onClick={() => {
-                      history.push('/dashboard')
-                    }}
-                  >
-                    Start
-                  </Button>
-                </div>
-                {scrolled && (
-                  <Suspense fallback={<CircularProgress />}>
-                    <PageContent setComponents={setComponents} />
-                  </Suspense>
-                )}
+                  <Container maxWidth="sm">
+                    <Formik
+                      initialValues={{
+                        email: "demo@aprajitaretails.io",
+                        password: "Password123",
+                      }}
+                      // validationSchema={Yup.object().shape({
+                      //   email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
+                      //   password: Yup.string().max(255).required('Password is required')
+                      // })}
+                      onSubmit={() => {
+                        history.push("/app/dashboard", { replace: true });
+                      }}
+                    >
+                      {({
+                        errors,
+                        handleBlur,
+                        handleChange,
+                        handleSubmit,
+                        isSubmitting,
+                        touched,
+                        values,
+                      }) => (
+                        <form onSubmit={handleSubmit}>
+                          <Box mb={3}>
+                            <Grid container spacing={3}>
+                              <Grid item item xs={12} sm={6}>
+                                <Typography color="textSecondary" variant="h3">
+                                  eStore
+                                </Typography>
+                              </Grid>
+                              <Grid item item xs={12} sm={6} justify="right" align="right">
+                                <Typography color="secondary" variant="h4" >
+                                  Sign In
+                                </Typography>
+                              </Grid>
+                              <Grid item xs={12}>
+                                <Typography
+                                  color="textSecondary"
+                                  gutterBottom
+                                  variant="body2"
+                                >
+                                  Sign in on the internal platform
+                                </Typography>
+                              </Grid>
+                            </Grid>
+                          </Box>
+                          <Grid container spacing={3}>
+                            <Grid item xs={12} md={6}>
+                              <Button
+                                color="primary"
+                                fullWidth
+                                startIcon={<FacebookIcon />}
+                                onClick={handleSubmit}
+                                size="large"
+                                variant="contained"
+                              >
+                                Login with Facebook
+                              </Button>
+                            </Grid>
+                            <Grid item xs={12} md={6}>
+                              <Button
+                                fullWidth
+                                startIcon={<GoogleIcon />}
+                                onClick={handleSubmit}
+                                size="large"
+                                variant="contained"
+                              >
+                                Login with Google
+                              </Button>
+                            </Grid>
+                          </Grid>
+                          <Box mt={3} mb={1}>
+                            <Typography
+                              align="center"
+                              color="textSecondary"
+                              variant="body1"
+                            >
+                              or login with email address
+                            </Typography>
+                          </Box>
+                          <TextField
+                            error={Boolean(touched.email && errors.email)}
+                            fullWidth
+                            helperText={touched.email && errors.email}
+                            label="Email Address"
+                            margin="normal"
+                            name="email"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            type="email"
+                            value={values.email}
+                            variant="outlined"
+                          />
+                          <TextField
+                            error={Boolean(touched.password && errors.password)}
+                            fullWidth
+                            helperText={touched.password && errors.password}
+                            label="Password"
+                            margin="normal"
+                            name="password"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            type="password"
+                            value={values.password}
+                            variant="outlined"
+                          />
+                          <Box my={2}>
+                            <Button
+                              fullWidth
+                              color="secondary"
+                              disabled={isSubmitting}
+                              size="large"
+                              style={{
+                                marginVertical: "10px",
+                                borderRadius: "40px",
+                                fontSize: "bold",
+                              }}
+                              type="submit"
+                              variant="contained"
+                              onClick={handel_LoginFunction}
+                            >
+                              Sign
+                            </Button>
+                          </Box>
+                          <Typography color="textSecondary" variant="body1">
+                            Don&apos;t have an account?{" "}
+                            <Link
+                              component={RouterLink}
+                              to="/register"
+                              variant="h6"
+                            >
+                              Sign up
+                            </Link>
+                          </Typography>
+                        </form>
+                      )}
+                    </Formik>
+                  </Container>
+                </Box>
               </Paper>
             </div>
-            <div style={{ height: 200 }}></div>
-            {scrolled && (
-              <Suspense fallback={<CircularProgress />}>
-                <Footer />
-              </Suspense>
-            )}
-          </div>
-        </Scrollbars>
+          </Grid>
+        </Grid>
       </React.Fragment>
     </ThemeProvider>
-  )
-}
-
-export default LandingPage
+  );
+};
+export default LoginView;

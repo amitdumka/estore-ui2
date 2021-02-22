@@ -1,6 +1,9 @@
 import red from '@material-ui/core/colors/red'
 import pink from '@material-ui/core/colors/pink'
 import green from '@material-ui/core/colors/green'
+import blue from '@material-ui/core/colors/blue'
+import yellow from '@material-ui/core/colors/yellow'
+
 
 const themes = [
   {
@@ -11,6 +14,7 @@ const themes = [
         secondary: {
           main: '#c62828',
         },
+        success: blue,
       },
     },
   },
@@ -22,6 +26,7 @@ const themes = [
         primary: red,
         secondary: pink,
         error: red,
+        success: yellow,
       },
     },
   },
@@ -33,6 +38,7 @@ const themes = [
         primary: green,
         secondary: red,
         error: red,
+        success:pink,
       },
     },
   },

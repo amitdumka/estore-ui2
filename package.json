@@ -27,10 +27,12 @@
     "react-intl": "5.x",
     "react-ios-pwa-prompt": "1.x",
     "react-markdown": "5.x",
-    "react-router-dom": "5.x",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "react-virtualized-auto-sizer": "1.x",
-    "react-window": "1.x"
+    "react-window": "1.x",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",

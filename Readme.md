@@ -17,3 +17,7 @@ https://in-your-saas.github.io/material-ui-theme-editor/
 https://mui.wertarbyte.com/#
 
 https://material-ui.com/components/material-icons/
+
+
+useNavigate/useHistory bug / shift
+https://github.com/ReactTraining/react-router/blob/f59ee5488bc343cf3c957b7e0cc395ef5eb572d2/docs/advanced-guides/migrating-5-to-6.md#relative-routes-and-links

@@ -39,8 +39,8 @@ const config = {
   },
   pages: {
 
-    LandingPage: lazy(() => import('../pages/LandingPage')),
-    PageNotFound: lazy(() => import('../pages/PageNotFound/PageNotFound')),
+    LandingPage: lazy(() => import('../app/pages/LandingPage')),
+    PageNotFound: lazy(() => import('../app/pages/PageNotFound/PageNotFound')),
   },
 }
 

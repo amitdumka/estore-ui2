@@ -5,20 +5,20 @@ import UnauthorizedRoute from 'base-shell/lib/components/UnauthorizedRoute/Unaut
 import { Route } from 'react-router-dom'
 import Auth from 'base-shell/lib/providers/Auth'
 
-const SignIn = lazy(() => import('../pages/SignIn/SignIn'))
-const SignUp = lazy(() => import('../pages/SignUp/SignUp'))
-const PasswordReset = lazy(() => import('../pages/PasswordReset/PasswordReset'))
-const About = lazy(() => import('../pages/About'))
-const Home = lazy(() => import('../pages/Home/Home'))
-const DialogDemo = lazy(() => import('../pages/DialogDemo/DialogDemo'))
-const ToastDemo = lazy(() => import('../pages/ToastDemo/ToastDemo'))
-const FilterDemo = lazy(() => import('../pages/FilterDemo'))
-const ListPageDemo = lazy(() => import('../pages/ListPageDemo'))
-const TabsDemo = lazy(() => import('../pages/TabsDemo'))
-const MyAccount = lazy(() => import('../pages/MyAccount/MyAccount'))
-const Dashboard = lazy(() => import('../pages/Dashboard'))
-const Dashboard2 = lazy(() => import('../views/reports/DashboardView'))
-const Customers = lazy(() => import('../views/ops/CustomerListView'))
+const SignIn = lazy(() => import('../app/pages/SignIn/SignIn'))
+const SignUp = lazy(() => import('../app/pages/SignUp/SignUp'))
+const PasswordReset = lazy(() => import('../app/pages/PasswordReset/PasswordReset'))
+const About = lazy(() => import('../app/pages/About'))
+const Home = lazy(() => import('../app/pages/Home/Home'))
+const DialogDemo = lazy(() => import('../app/pages/DialogDemo/DialogDemo'))
+const ToastDemo = lazy(() => import('../app/pages/ToastDemo/ToastDemo'))
+const FilterDemo = lazy(() => import('../app/pages/FilterDemo'))
+const ListPageDemo = lazy(() => import('../app/pages/ListPageDemo'))
+const TabsDemo = lazy(() => import('../app/pages/TabsDemo'))
+const MyAccount = lazy(() => import('../app/pages/MyAccount/MyAccount'))
+const Dashboard = lazy(() => import('../app/pages/Dashboard'))
+const Dashboard2 = lazy(() => import('../app/views/reports/DashboardView'))
+const Customers = lazy(() => import('../app/views/ops/CustomerListView'))
 
 const routes = [
   <UnauthorizedRoute path="/signin" redirectTo="/" exact component={SignIn} />,

@@ -23,3 +23,12 @@ https://github.com/ReactTraining/react-router/blob/f59ee5488bc343cf3c957b7e0cc39
 
 
 https://github.com/github/fetch#post-form
+
+Secure and Auth Help 
+https://auth0.com/blog/role-based-access-control-rbac-and-react-apps/
+
+
+dyn mic form
+https://codeburst.io/reactjs-a-quick-tutorial-to-build-dynamic-json-based-form-a4768b3151c0
+
+https://www.pluralsight.com/guides/generating-dynamic-forms-from-json-in-react

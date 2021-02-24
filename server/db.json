@@ -1,0 +1,106 @@
+{
+  "Todos": [
+    {
+      "id": 1,
+      "todo": "Check Todo"
+    }
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "title": "Mr",
+      "firstName": "Joe",
+      "lastName": "Bloggs",
+      "email": "joe@bloggs.com",
+      "role": "User",
+      "password": "joe123"
+    },
+    {
+      "id": 2,
+      "title": "Mr",
+      "firstName": "Amit",
+      "lastName": "Kumar",
+      "email": "amit@bloggs.com",
+      "role": "User",
+      "password": "amit123"
+    },
+    {
+      "title": "Mr",
+      "firstName": "Alok",
+      "lastName": "Kumar",
+      "email": "amitnarayansah@gmail.com",
+      "role": "User",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 3
+    },
+    {
+      "role": "User",
+      "email": "amitnarayansah@gmail.com",
+      "lastName": "Sah",
+      "firstName": "Amit Kumar",
+      "title": "Mr",
+      "id": 4
+    },
+    {
+      "title": "Mr",
+      "firstName": "Murali",
+      "lastName": "Manohar",
+      "email": "murlippt@gmail.com",
+      "role": "User",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 5
+    }
+  ],
+  "Employees": [
+    {
+      "title": "Mr",
+      "firstName": "Amit",
+      "lastName": "Kumar",
+      "email": "amitnarayansah@gmail.com",
+      "role": "Admin",
+      "id": 1
+    },
+    {
+      "title": "Mr",
+      "firstName": "Alok",
+      "lastName": "Kumar",
+      "email": "alok@arvind.in",
+      "role": "StoreManager",
+      "id": 2
+    }
+  ],
+  "Stores": [
+    {
+      "id": 1,
+      "storeName": "Aprajita Retails",
+      "storeCode": "JHC0006",
+      "city": "Dumka"
+    },
+    {
+      "id": 2,
+      "storeName": "Aprajita Retails, Jamshedpur",
+      "storeCode": "JHC0014",
+      "city": "Jamshedpur"
+    },
+    {
+      "storeName": "TAS Deoghar",
+      "storeCode": "JHC0004",
+      "city": "Deoghar",
+      "id": 3
+    },
+    {
+      "storeName": "COFO Dhandad",
+      "storeCode": "JHC0008",
+      "city": "Dhanbad",
+      "id": 4
+    },
+    {
+      "storeName": "COFO Dhandad 2",
+      "storeCode": "JHC0010",
+      "city": "Dhanbad",
+      "id": 5
+    }
+  ]
+}

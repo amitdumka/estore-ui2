@@ -20,9 +20,17 @@ const Dashboard = lazy(() => import('../app/pages/Dashboard'))
 const Dashboard2 = lazy(() => import('../app/views/reports/DashboardView'))
 const Customers = lazy(() => import('../app/views/ops/CustomerListView'))
 
+const TestMe = lazy(() => import('../testing/testme'))
+
+const Home2 = lazy(() => import('../testing/home'))
+const Users = lazy(() => import('../testing/users/Index'))
+const Stores =lazy(() => import('../testing/stores/Index'))
+const Employees =lazy(() => import('../testing/employees/Index'))
+
 const routes = [
   <UnauthorizedRoute path="/signin" redirectTo="/" exact component={SignIn} />,
   <UnauthorizedRoute path="/signup" redirectTo="/" exact component={SignUp} />,
+  <Route path="/testme" exact component={TestMe}/>,
   <UnauthorizedRoute
     path="/password_reset"
     redirectTo="/"
@@ -100,6 +108,11 @@ const routes = [
   <AuthorizedRoute path="/stores/cashdetails" exact component={TabsDemo}/>,
   <AuthorizedRoute path="/stores/customers" exact component={Customers}/>,
 
+  
+  <Route  path="/home2" extact component={Home2} />,
+  <Route path="/users" extact component={Users} />,
+  <Route path="/stores" extact component={Stores} />,
+  <Route path="/employees" extact component={Employees} />
 
 
 ]
